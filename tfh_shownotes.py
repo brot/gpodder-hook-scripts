@@ -22,6 +22,7 @@
 # for the "Tin Foil Hat" podcast here:
 # http://cafeninja.blogspot.com/2010/10/tin-foil-hat-show-episode-001.html
 
+import eyeD3
 import re
 import os
 import sys
@@ -35,21 +36,22 @@ sys.path.append('/opt/gpodder/src/')
 
 # extract image from the podcast file
 def extract_image(filename):
-    myprocess = subprocess.Popen(['eyeD3', '--write-image=/tmp', filename],
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    (stdout, stderr) = myprocess.communicate()
-    if stderr:
-        m = re.search('(?<=Writing ).*(?=\.{3})', stderr)
-        imagefile = m.group(0)
-    else:
-        print "Couldn't extract image from file %s" % filename
-
+    imagefile = None
+    if eyeD3.isMp3File(filename):
+        tag = eyeD3.Mp3AudioFile(filename).getTag()
+        images = tag.getImages()
+        if images:
+            img = images[0]
+            imagefile = img.getDefaultFileName()
+            img.writeFile(path='/tmp', name=imagefile)
+            imagefile = "/tmp/%s" % imagefile
+    
     return imagefile
 
 
 # extract shownotes from the FRONT_COVER.jpeg
 def extract_shownotes(imagefile):
-    shownotes = ''
+    shownotes = None 
     if imagefile:
         password = 'tinfoilhat'
         shownotes_file = '/tmp/shownotes.txt'
