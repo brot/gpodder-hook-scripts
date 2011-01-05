@@ -90,9 +90,9 @@ class gPodderHooks(object):
 
         return shownotes
 
-    def on_episode_save(self, episode):
-        log(u'on_episode_save(%s)' % episode.title)
-        self.on_episode_downloaded(episode)
+    #def on_episode_save(self, episode):
+    #    log(u'on_episode_save(%s)' % episode.title)
+    #    self.on_episode_downloaded(episode)
 
     def on_episode_downloaded(self, episode):
         log(u'on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
