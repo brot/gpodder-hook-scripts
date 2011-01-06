@@ -1,5 +1,21 @@
-Summary
-=======
+# Summary
+
+This repository contains gPodder hook scripts which I use for myself. Please feel free to fork or use this repository for your own purpose.
+
+## gPodder hooks infrastructure (recommended way)
+
+### What are hooks in gPodder?
+
+Hooks are python scripts in ~/.config/gpodder/hooks. Each script must define a class named "gPodderHooks", otherwise it will be ignored.
+
+### How to configure
+
+You could copy or link the scripts in this repository to ~/.config/gpodder/hooks/ and everything should work fine.
+
+
+# Hooks list
+
+## tfh_shownotes_hook
 
 "Tin Foil Hat Show" is a podcast produced by CafeNinja.
 http://cafeninja.blogspot.com/search/label/tinfoilhat
@@ -10,10 +26,7 @@ This is the reason why I created some hooks to get this show notes automatically
 
 This github repository includes two options to configure your gPodder installation with this feature.
 
-Requirements
-------------
-
-First you have to take care that all required programs and libraries are installed on your system
+### Requirements
 
 - python-eyed3
 
@@ -28,27 +41,15 @@ First you have to take care that all required programs and libraries are install
   Steghide is a steganography program that is able to hide data in various kinds of image- and audio-files. 
 
 
-gPodder hooks infrastructure (recommended way)
-----------------------------------------------
+## rm_ogg_coover_hook
 
-### What are hooks in gPodder?
+This hook scripts removes coverart from all downloaded ogg files.
+The reason for this script is that my media player (MEIZU SL6) could not handle ogg files with included coverart. 
 
-Hooks are python scripts in ~/.config/gpodder/hooks. Each script must define a class named "gPodderHooks", otherwise it will be ignored.
+### Requirements
 
-### How to configure
+- python-mutagen
 
-You could copy the script `tfh_shownotes_hook.py` to ~/.config/gpodder/hooks/ and everything should work fine.
+  Homepage: http://code.google.com/p/mutagen/
 
-
-gPodder post-download script hook
----------------------------------
-
-### What is the post-download script hook in gPodder?
-
-In the advanced configuration gui of gPodder you could define a script which is started after a download is finished
-
-## How to configure
-
-- Open the advanced configuration gui in gPodder
-- Search for the "cmd_download_complete" variable
-- Fill in the full path to the "tfh_shownotes_script.py" script 
+  Mutagen is a Python module to handle audio metadata.

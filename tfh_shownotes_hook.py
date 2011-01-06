@@ -20,8 +20,9 @@
 # * python-eyed3 (eyeD3 python library - http://eyed3.nicfit.net/)
 # * steghide (steganography program - http://steghide.sourceforge.net/)
 #
-# you can find the instructions how to extract shownotes
-# for the "Tin Foil Hat" podcast here:
+# The script extract the shownotes from the "Tin Foil Hat" podcast
+# You can find the instructions how to extract shownotes for the
+# "Tin Foil Hat" podcast here:
 # http://cafeninja.blogspot.com/2010/10/tin-foil-hat-show-episode-001.html
 
 import gpodder
@@ -89,10 +90,6 @@ class gPodderHooks(object):
             log(u'Error extracting shownotes from the image file %s' % imagefile)
 
         return shownotes
-
-    #def on_episode_save(self, episode):
-    #    log(u'on_episode_save(%s)' % episode.title)
-    #    self.on_episode_downloaded(episode)
 
     def on_episode_downloaded(self, episode):
         log(u'on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
