@@ -12,6 +12,10 @@ Hooks are python scripts in ~/.config/gpodder/hooks. Each script must define a c
 
 You could copy or link the scripts in this repository to ~/.config/gpodder/hooks/ and everything should work fine.
 
+### How to create my own hook script?
+
+See example documentation at [hooks.py](http://repo.or.cz/w/gpodder.git/blob/HEAD:/doc/dev/examples/hooks.py).
+
 
 # Hooks list
 
