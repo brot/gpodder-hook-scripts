@@ -53,3 +53,17 @@ The reason for this script is that my media player (MEIZU SL6) could not handle 
   Homepage: http://code.google.com/p/mutagen/
 
   Mutagen is a Python module to handle audio metadata.
+
+## bittorrent
+
+Automatically open .torrent files with a BitTorrent client.
+
+## mp3split
+
+Split mp3 files in ranges of 10 minutes when the files are copied to the device.
+
+### Requirements
+
+- mp3splt binary on the path.
+
+  Homepage: http://mp3splt.sourceforge.net/
