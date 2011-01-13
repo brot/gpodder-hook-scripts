@@ -27,10 +27,7 @@ from gpodder.liblogger import log
 
 class gPodderHooks(object):
     def __init__(self):
-        log('Remove ogg cover extension is initializing.')
-
-    def on_episode_save(self, episode):
-        self.on_episode_downloaded(episode)
+        log('save episode title to file extension is initializing.')
 
     def on_episode_downloaded(self, episode):
         log(u'on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
@@ -39,12 +36,20 @@ class gPodderHooks(object):
         if filename is None:
             return
 
-        save_filename = sanitize_filename(episode.title)
+        save_title = sanitize_filename(episode.title)
         path, fn = os.path.split(filename)
         basename, extension = os.path.splitext(fn)
-        new_filename = os.path.join(path, "%s%s" % (save_filename, extension))
+        new_filename = "%s%s" % (save_title, extension)
+        new_file= os.path.join(path, new_filename)
 
         ## check if file exists before renaming
-        #os.rename(filename, new_filename)
+        os.rename(filename, new_file)
+        log(u'---------------------------: %s' % episode.filename)
+        log(u'---------------------------: %s' % new_filename)
+        log(u'---------------------------: %s' % new_file)
 
         ## update filename in the sqlite-db (table: episodes, column: filename (without path, only filename))
+        episode.filename = new_filename
+        episode.save()
+
+        ## wird aber mit alten Namen auf den MediaPlayer gespielt :-(
