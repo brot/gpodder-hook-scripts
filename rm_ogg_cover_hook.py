@@ -44,8 +44,8 @@ class gPodderHooks(object):
         if filename is None:
             return
 
-        basename, extension = os.path.splitext(filename)
-        if episode.file_type() == 'audio' and extension.lower() == '.ogg':
+        (basename, extension) = os.path.splitext(filename)
+        if episode.file_type() == 'audio' and extension.lower().endswith('ogg'):
             log(u'trying to remove cover from %s' % filename)
             found = False
 

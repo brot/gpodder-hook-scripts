@@ -37,7 +37,7 @@ class gPodderHooks(object):
             return
 
         save_title = sanitize_filename(episode.title)
-        path, fn = os.path.split(filename)
+        (path, fn) = os.path.split(filename)
         basename, extension = os.path.splitext(fn)
         new_filename = "%s%s" % (save_title, extension)
         new_file= os.path.join(path, new_filename)
@@ -51,5 +51,8 @@ class gPodderHooks(object):
         ## update filename in the sqlite-db (table: episodes, column: filename (without path, only filename))
         episode.filename = new_filename
         episode.save()
+        episode.db.commit()
+
+        log(u'---------------------------: %s' % episode.local_filename(create=False, check_only=True))
 
         ## wird aber mit alten Namen auf den MediaPlayer gespielt :-(

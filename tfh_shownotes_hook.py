@@ -111,3 +111,4 @@ class gPodderHooks(object):
             if episode.description.find(shownotes) == -1:
                 episode.description = "%s\n\n<pre>%s</pre>" % (episode.description, shownotes)
                 episode.save()
+                episode.db.commit()
