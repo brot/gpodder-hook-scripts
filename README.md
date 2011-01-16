@@ -19,6 +19,52 @@ See example documentation at [hooks.py](http://repo.or.cz/w/gpodder.git/blob/HEA
 
 # Hooks list
 
+
+## bittorrent
+
+Automatically open .torrent files with a BitTorrent client.
+
+
+## mp3split
+
+Split mp3 files in ranges of 10 minutes when the files are copied to the device.
+
+### Requirements
+
+- mp3splt binary on the path.
+
+  Homepage: http://mp3splt.sourceforge.net/
+
+
+## rm_ogg_coover_hook
+
+This hook scripts removes coverart from all downloaded ogg files.
+The reason for this script is that my media player (MEIZU SL6) could not handle ogg files with included coverart. 
+
+### Requirements
+
+- python-mutagen
+
+  Homepage: http://code.google.com/p/mutagen/
+
+  Mutagen is a Python module to handle audio metadata.
+
+
+## tagging_hook
+
+This hook script adds episode title and podcast title to the audio file
+The episode title is written into the title tag
+The podcast title is written into the album tag
+
+### Requirements
+
+- python-mutagen
+
+  Homepage: http://code.google.com/p/mutagen/
+
+  Mutagen is a Python module to handle audio metadata.
+
+
 ## tfh_shownotes_hook
 
 "Tin Foil Hat Show" is a podcast produced by CafeNinja.
@@ -43,31 +89,3 @@ This github repository includes two options to configure your gPodder installati
   Homepage: http://steghide.sourceforge.net/
 
   Steghide is a steganography program that is able to hide data in various kinds of image- and audio-files. 
-
-
-## rm_ogg_coover_hook
-
-This hook scripts removes coverart from all downloaded ogg files.
-The reason for this script is that my media player (MEIZU SL6) could not handle ogg files with included coverart. 
-
-### Requirements
-
-- python-mutagen
-
-  Homepage: http://code.google.com/p/mutagen/
-
-  Mutagen is a Python module to handle audio metadata.
-
-## bittorrent
-
-Automatically open .torrent files with a BitTorrent client.
-
-## mp3split
-
-Split mp3 files in ranges of 10 minutes when the files are copied to the device.
-
-### Requirements
-
-- mp3splt binary on the path.
-
-  Homepage: http://mp3splt.sourceforge.net/
