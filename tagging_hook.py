@@ -37,6 +37,7 @@ except:
 
 ## settings
 strip_album_from_title = True
+genre_tag = 'Podcast'
 
 
 class gPodderHooks(object):
@@ -75,6 +76,8 @@ class gPodderHooks(object):
             audio.tags['album'] = album
         if title is not None:
             audio.tags['title'] = title
+        if genre_tag is not None:
+            audio.tags['genre'] = genre_tag
 
         audio.save()
 
