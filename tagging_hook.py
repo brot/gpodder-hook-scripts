@@ -37,7 +37,7 @@ except:
 
 ## settings
 strip_album_from_title = True
-genre_tag = 'Podcast'
+genre_tag = u'Podcast'
 
 
 class gPodderHooks(object):
@@ -45,7 +45,7 @@ class gPodderHooks(object):
         log('tagging extension is initializing.')
 
     def on_episode_downloaded(self, episode):
-        log(u'on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
+        log(u'tagging.on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
 
 
         # exit if mutagen is not installed
