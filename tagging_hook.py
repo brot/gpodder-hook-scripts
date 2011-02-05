@@ -23,6 +23,7 @@
 # The episode title is written into the title tag
 # The podcast title is written into the album tag
 
+import datetime
 import os
 import gpodder
 from gpodder.liblogger import log
@@ -65,8 +66,14 @@ class gPodderHooks(object):
         # read title+album from gPodder database
         album = episode.channel.title
         title = episode.title
-        if strip_album_from_title and (title is not None) and (album is not None):
-            title = title.lstrip(album)
+        if (strip_album_from_title and title and album and title.startswith(album)):
+            title = title[len(album):].lstrip()
+
+        # convert pubDate to string
+        try:
+            pubDate =  datetime.datetime.fromtimestamp(episode.pubDate).strftime('%Y-%m-%d %H:%M')
+        except:
+            pubDate = None
 
         # write title+album information into audio files
         if audio.tags is None:
@@ -78,6 +85,8 @@ class gPodderHooks(object):
             audio.tags['title'] = title
         if genre_tag is not None:
             audio.tags['genre'] = genre_tag
+        if pubDate is not None:
+            audio.tags['date'] = pubDate
 
         audio.save()
 
