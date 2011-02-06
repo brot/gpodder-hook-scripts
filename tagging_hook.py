@@ -79,12 +79,19 @@ class gPodderHooks(object):
         if audio.tags is None:
             audio.add_tags()
 
+        # write album+title
         if album is not None:
             audio.tags['album'] = album
         if title is not None:
             audio.tags['title'] = title
+
+        # write genre tag
         if genre_tag is not None:
             audio.tags['genre'] = genre_tag
+        else:
+            audio.tags['genre'] = ''
+
+        # write pubDate
         if pubDate is not None:
             audio.tags['date'] = pubDate
 
