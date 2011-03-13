@@ -36,6 +36,16 @@ Split mp3 files in ranges of 10 minutes when the files are copied to the device.
   Homepage: http://mp3splt.sourceforge.net/
 
 
+## reset_etag
+
+Resets the etag and last modified information for a podcast. This could be necessary if the server lies about the last modified state.
+This will cause gPodder to reload (and re-parse) the feed every time 
+
+### Requirements
+
+No requirements
+
+
 ## rm_ogg_coover_hook
 
 This hook scripts removes coverart from all downloaded ogg files.
