@@ -33,9 +33,8 @@ class gPodderHooks(object):
         log('Reset etag extension is initializing.')
 
     def on_podcast_updated(self, podcast):
-        log(u'on_podcast_updated(%s)' % podcast.title)
-        
         if podcast.url.startswith(domains):
             podcast.etag = None
             podcast.last_modified = None
             podcast.save()
+            log(u'deleted etag and last modified date from podcast: %s' % podcast.title)

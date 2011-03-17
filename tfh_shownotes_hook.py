@@ -92,8 +92,6 @@ class gPodderHooks(object):
         return shownotes
 
     def on_episode_downloaded(self, episode):
-        log(u'tfh_shownotes.on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
-
         if episode.channel.title == TFH_TITLE:
             filename = episode.local_filename(create=False, check_only=True)
             if filename is None:
@@ -112,3 +110,4 @@ class gPodderHooks(object):
                 episode.description = "%s\n\n<pre>%s</pre>" % (episode.description, shownotes)
                 episode.save()
                 episode.db.commit()
+                log(u'updated shownotes for podcast: (%s/%s)' % (episode.channel.title, episode.title))

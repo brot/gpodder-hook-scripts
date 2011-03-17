@@ -38,8 +38,6 @@ class gPodderHooks(object):
         log('Remove ogg cover extension is initializing.')
 
     def on_episode_downloaded(self, episode):
-        log(u'rm_ogg_cover.on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
-
         filename = episode.local_filename(create=False, check_only=True)
         if filename is None:
             return

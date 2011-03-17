@@ -46,9 +46,6 @@ class gPodderHooks(object):
         log('tagging extension is initializing.')
 
     def on_episode_downloaded(self, episode):
-        log(u'tagging.on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
-
-
         # exit if mutagen is not installed
         if not mutagen_installed:
             return
@@ -96,4 +93,5 @@ class gPodderHooks(object):
             audio.tags['date'] = pubDate
 
         audio.save()
+        log(u'tagging.on_episode_downloaded(%s/%s)' % (episode.channel.title, episode.title))
 
