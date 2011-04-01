@@ -34,6 +34,12 @@ Split mp3 files in ranges of 10 minutes when the files are copied to the device.
 - mp3splt binary on the path.
 
   Homepage: http://mp3splt.sourceforge.net/
+  
+
+## zpravy
+
+The $subj podcast rss does not contain id and pubdate. Because of the missing guid gPodder reports always "no new episodes" for the podcast. 
+This hook script fixes this. The pubdate can be calculated from the audio file url and I used the same number as guid.
 
 
 ## reset_etag
