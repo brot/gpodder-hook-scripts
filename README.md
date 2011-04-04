@@ -24,6 +24,9 @@ See example documentation at [hooks.py](http://repo.or.cz/w/gpodder.git/blob/HEA
 
 Automatically open .torrent files with a BitTorrent client.
 
+## rename_downloads
+
+Rename downloaded episodes based on their episode title in the feed.
 
 ## mp3split
 
