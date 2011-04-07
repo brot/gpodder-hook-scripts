@@ -13,7 +13,7 @@
 DEFAULT_DEVICE_WIDTH = 224.0 #make sure to include the .0, this is a float
 DEFAULT_DEVICE_HEIGHT = 176.0
 ROCKBOX_EXTENTION = "mpg"
-EXTENTIONS_TO_CONVERT = ['.mp4'] 
+EXTENTIONS_TO_CONVERT = ['.mp4',"." + ROCKBOX_EXTENTION] 
 FFMPEG_OPTIONS = '-vcodec mpeg2video -b 500k -ab 192k -ac 2 -ar 44100 -acodec libmp3lame'
 
 from gpodder import util
@@ -112,6 +112,17 @@ class gPodderHooks(object):
             new_filename = (current_filename[:- len(ext)]) +  "." + ROCKBOX_EXTENTION
             new_filebasename = basename + "." + ROCKBOX_EXTENTION
             
+            print "ifing" +  filename
+            if filename.endswith(ROCKBOX_EXTENTION):
+                tmpFilename= current_filename + ".tmp"
+                os.rename(current_filename , tmpFilename)
+                current_filename = tmpFilename
+                dirname = os.path.dirname(current_filename)
+                filename = os.path.basename(current_filename)
+                basename, ext = os.path.splitext(filename)
+                            
+            
+                
             print 'Renaming:', filename, '->', new_filename
     
             destination_filename = os.path.join(dirname, new_filename)
