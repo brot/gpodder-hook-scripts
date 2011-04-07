@@ -48,7 +48,6 @@ def convertMP4(from_file, to_file):
     Convert MP4 file to rockbox mpg file
     '''
     time.sleep(4)
-    print "wooohoo"
     
     #input_command = self.decoder_command % input_filename
     #output_command = self.encoder_command % output_filename
@@ -112,7 +111,6 @@ class gPodderHooks(object):
             new_filename = (current_filename[:- len(ext)]) +  "." + ROCKBOX_EXTENTION
             new_filebasename = basename + "." + ROCKBOX_EXTENTION
             
-            print "ifing" +  filename
             if filename.endswith(ROCKBOX_EXTENTION):
                 tmpFilename= current_filename + ".tmp"
                 os.rename(current_filename , tmpFilename)
