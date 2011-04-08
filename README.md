@@ -39,12 +39,6 @@ Split mp3 files in ranges of 10 minutes when the files are copied to the device.
   Homepage: http://mp3splt.sourceforge.net/
   
 
-## zpravy
-
-The $subj podcast rss does not contain id and pubdate. Because of the missing guid gPodder reports always "no new episodes" for the podcast. 
-This hook script fixes this. The pubdate can be calculated from the audio file url and I used the same number as guid.
-
-
 ## reset_etag
 
 Resets the etag and last modified information for a podcast. This could be necessary if the server lies about the last modified state.
@@ -67,6 +61,29 @@ The reason for this script is that my media player (MEIZU SL6) could not handle 
   Homepage: http://code.google.com/p/mutagen/
 
   Mutagen is a Python module to handle audio metadata.
+
+
+## rockbox_mp4_convert
+
+This script converts any mp4 videos to play on a Sansa Fuze with rockbox installed
+
+### Requirements
+
+- python-kaa-metadata
+
+  Homepage: http://freevo.org/kaa 
+
+  Kaa Metadata is a Media Meta Data retrieval framework. It retrieves metadata from mp3, ogg, avi, jpg, tiff and other file formats. Among others it thereby parses ID3v2, ID3v1, EXIF, IPTC and Vorbis data into an object oriented struture.
+
+- python-dbus
+
+  simple interprocess messaging system (Python interface)
+
+- ffmpeg
+
+  Homepage: http://www.ffmpeg.org/
+
+  Multimedia player, server, encoder and transcoder
 
 
 ## tagging_hook
@@ -108,3 +125,9 @@ This github repository includes two options to configure your gPodder installati
   Homepage: http://steghide.sourceforge.net/
 
   Steghide is a steganography program that is able to hide data in various kinds of image- and audio-files. 
+
+
+## zpravy
+
+The $subj podcast rss does not contain id and pubdate. Because of the missing guid gPodder reports always "no new episodes" for the podcast. 
+This hook script fixes this. The pubdate can be calculated from the audio file url and I used the same number as guid.
