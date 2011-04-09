@@ -22,6 +22,6 @@ class gPodderHooks(object):
         destination_filename = os.path.join(dirname, new_filename)
 
         os.rename(current_filename, destination_filename)
-        episode.download_filename = new_filename
+        episode.filename = new_filename
         episode.save()
 
