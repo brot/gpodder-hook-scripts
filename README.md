@@ -6,16 +6,19 @@ This repository contains gPodder hook scripts which I use for myself. Please fee
 
 ### What are hooks in gPodder?
 
-Hooks are python scripts in ~/.config/gpodder/hooks. Each script must define a class named "gPodderHooks", otherwise it will be ignored.
+Hooks are python scripts loaded by gPodder at runtime. Each script must define a class named "gPodderHooks", otherwise it will be ignored.
 
 ### How to configure
 
 You could copy or link the scripts in this repository to ~/.config/gpodder/hooks/ and everything should work fine.
 
+For gPodder "tres" (3.x branch), you need to place them in $GPODDER_HOME/Hooks/ (where $GPODDER_HOME defaults to ~/gPodder/ if you have not set it manually)
+
 ### How to create my own hook script?
 
 See example documentation at [hooks.py](http://repo.or.cz/w/gpodder.git/blob/HEAD:/doc/dev/examples/hooks.py).
 
+In the "tres" branch, the example is in examples/hooks.py.
 
 # Hooks list
 
@@ -131,3 +134,12 @@ This github repository includes two options to configure your gPodder installati
 
 The $subj podcast rss does not contain id and pubdate. Because of the missing guid gPodder reports always "no new episodes" for the podcast. 
 This hook script fixes this. The pubdate can be calculated from the audio file url and I used the same number as guid.
+
+
+## enqueue_in_vlc
+
+This hook shows a new feature of the gPodder "tres" branch - you can now add
+items to the episode list context menu. Each item needs to have a label and
+a callable that will take a list of selected episodes. This script shows you
+how to implement a "Enqueue in VLC" context menu item using hooks.
+
