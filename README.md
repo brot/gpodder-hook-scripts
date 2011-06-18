@@ -2,6 +2,9 @@
 
 This repository contains gPodder hook scripts which I use for myself. Please feel free to fork or use this repository for your own purpose.
 
+** ATTENTION **
+This repository is no longer being developed. Please use our new repository at https://github.com/gpodder/gpodder-hook-scripts
+
 ## gPodder hooks infrastructure (recommended way)
 
 ### What are hooks in gPodder?
